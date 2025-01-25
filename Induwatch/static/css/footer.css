@@ -1,0 +1,40 @@
+.card-title {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 0px;
+}
+
+.card-text a {
+    color: #bdbdbd;
+    text-decoration: none;
+}
+
+.card-text a:hover {
+    color: #17a2b8;
+}
+
+.nav-link {
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #17a2b8;
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: #343a40;
+}
+
+.list-group-item a:hover {
+    color: #17a2b8;
+}
+
+.fab, .fas {
+    transition: color 0.3s ease;
+}
+
+.fab:hover, .fas:hover {
+    color: #17a2b8;
+}

@@ -1,0 +1,64 @@
+/* Assure que le menu déroulant est flottant */
+.nav-item.dropdown .dropdown-menu {
+    position: absolute;
+    top: 100%; /* Position juste en dessous du lien parent */
+    left: 0;
+    z-index: 1050; /* Pour le rendre visible au-dessus des autres éléments */
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir semi-transparent */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Bordure discrète */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Ombre subtile */
+    display: none; /* Par défaut, caché */
+}
+
+/* Afficher le menu au survol ou clic */
+.nav-item.dropdown:hover .dropdown-menu,
+.nav-item.dropdown.show .dropdown-menu {
+    display: block;
+}
+
+/* Style des éléments du menu */
+.dropdown-menu .dropdown-item {
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Légère variation du texte au survol */
+.dropdown-menu .dropdown-item:hover {
+    color: #17a2b8;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed; /* Fixe la navbar en haut de la page */
+    top: 0; /* Aligne la navbar avec le haut de la fenêtre */
+    left: 0; /* S'étend à gauche de la fenêtre */
+    width: 100%; /* Prend toute la largeur */
+    z-index: 1050; /* La met au-dessus des autres éléments */
+
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir avec 80% d'opacité */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile pour démarquer */
+    backdrop-filter: blur(5px); /* Ajoute un flou derrière la navbar pour un effet moderne */
+    transition: background-color 0.3s ease-in-out; /* Transition fluide pour tout changement de fond */
+}
+
+.nav-item {
+    white-space: nowrap; /* Empêche les éléments de se couper sur plusieurs lignes */
+    margin-right: 15px; /* Espacement minimal entre les éléments */
+}
+
+.nav-link {
+    display: flex;
+    align-items: center; /* Aligne les icônes et le texte verticalement */
+    font-size: 0.9rem; /* Réduit légèrement la taille du texte */
+    padding: 0.5rem 0.7rem; /* Réduit les marges internes */
+}
+
+.nav-link i {
+    font-size: 1rem; /* Taille des icônes réduite */
+    margin-right: 5px; /* Espacement entre l'icône et le texte */
+}

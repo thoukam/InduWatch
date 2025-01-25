@@ -1,0 +1,97 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <!-- Logo et nom -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="{% static 'images\logo.png' %}" alt="Logo" style="height: 40px; margin-right: 10px;">
+            <span>InduWatch</span>
+        </a>
+
+        <!-- Navigation -->
+        <ul class="navbar-nav flex-row flex-wrap">
+            <li class="nav-item">
+                <a class="nav-link active" href=" "><i class="fas fa-home"></i> Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard/"><i class="fas fa-chart-bar"></i> Visualisation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-history"></i> Historique</a>
+            </li>
+            <!-- Dropdown Capteurs -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownCapteurs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-sensor"></i> Capteurs
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownCapteurs">
+                    <li><a class="dropdown-item" href="#">Capteur Température</a></li>
+                    <li><a class="dropdown-item" href="#">Capteur Humidité</a></li>
+                    <li><a class="dropdown-item" href="#">Capteur Lumière</a></li>
+                    <li><a class="dropdown-item" href="#">Capteur Proximité</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-bell"></i> Alertes</a>
+            </li>
+            {% if user.is_authenticated %}
+                {% if user.is_staff %}
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/"><i class="fas fa-users"></i> Gestion des utilisateurs</a>
+            </li>
+                {% endif %}
+            {% endif %}
+        </ul>
+
+        <!-- Barre de recherche et boutons -->
+        <form class="d-flex align-items-center">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 150px;">
+            <button class="btn btn-outline-success me-2" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+
+        <!-- Éléments à droite -->
+        <ul class="navbar-nav ms-auto user-info" style="display: flex; flex-direction: column; align-items: flex-end; font-size: 0.0rem; gap: 0px;">
+            {% if user.is_authenticated %}
+                <!-- Message de bienvenue -->
+                <li class="nav-item">
+                    <span class="nav-link" style="padding: 0; color: white; font-size: 0.5rem;">Welcome, <strong>{{ user.username }}</strong></span>
+                </li>
+
+                <!-- Grade -->
+                <li class="nav-item">
+                    <span class="nav-link" style="padding: 0; color: white; font-size: 0.5rem;">Grade: 
+                        {% if user.is_staff %}
+                            <strong>Admin</strong>
+                        {% else %}
+                            <strong>Standard</strong>
+                        {% endif %}
+                    </span>
+                </li>
+
+                <!-- Statut -->
+                <li class="nav-item">
+                    <span class="nav-link text-success" style="padding: 0; font-size: 0.5rem;">Statut: Connecté</span>
+                </li>
+            {% endif %}
+        </ul>
+
+
+        <div class="d-flex">
+            {% if user.is_authenticated %}
+                <!-- Bouton Déconnexion -->
+                <a href="{% url 'logout' %}" class="btn btn-outline-danger me-2">
+                    <i class="fas fa-sign-out-alt"></i> Déconnexion
+                </a>
+            {% else %}
+                <!-- Bouton Connexion -->
+                <a href="{% url 'login' %}" class="btn btn-outline-success me-2">
+                    <i class="fas fa-sign-in-alt"></i> Connexion
+                </a>
+            {% endif %}
+        </div>
+        
+    </div>
+</nav>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css'  %}">
+
+    

@@ -1,0 +1,14 @@
+#logo {
+    width: 100px; /* Augmentation de la largeur pour plus de visibilité */
+    height: 100px; /* Hauteur proportionnelle */
+    display: block;
+    margin: 10px auto;
+}
+
+body {
+    background-color: #ebeff5; /* Couleur de fond légèrement grise */
+    font-family: Arial, sans-serif; /* Typographie de base */
+    margin: 0; /* Suppression des marges par défaut */
+    padding: 0; /* Suppression des espacements par défaut */
+    padding-top: 70px; /* Ajoute un espace sous la navbar (ajustez selon la hauteur réelle de votre navbar) */
+}
